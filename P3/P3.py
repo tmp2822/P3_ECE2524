@@ -1,26 +1,23 @@
 import sys
+import Commands
 
-class Commands:
-
-    def Search():
-        return 0
-
-    def Remove():
-        return 0
-
-    def Merge():
-        return 0
-
-    def List():
-        return 0
-
-    def Copy():
-        return 0
+command = Commands.Commands() 
 
 if len(sys.argv) < 2:
     print("Error to few arguments")
     exit(0)
 
-print(sys.argv[1])
+commandArg = sys.argv[1]
+
+availableCommands = ["search", "remove", "merge", "list", "copy"]
+
+if commandArg not in availableCommands:
+    print("Invalid command argument")
+    exit(0)
+
+
+if commandArg == "search":
+    command.Search(sys.argv[2:])
+
 
 
