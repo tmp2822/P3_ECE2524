@@ -17,6 +17,10 @@ if commandArg not in availableCommands:
 
 
 if commandArg == "search":
+    if len(sys.argv[2:]) < 3:
+        print("Error: the search command takes 3 arguments")
+        exit(0)
+
     command.Search(sys.argv[2:])
 
 
