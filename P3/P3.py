@@ -1,3 +1,4 @@
+import sys
 
 class Commands:
 
@@ -16,5 +17,10 @@ class Commands:
     def Copy():
         return 0
 
+if len(sys.argv) < 2:
+    print("Error to few arguments")
+    exit(0)
+
+print(sys.argv[1])
 
 
