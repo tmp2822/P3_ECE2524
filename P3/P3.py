@@ -17,8 +17,13 @@ if commandArg not in availableCommands:
 
 
 if commandArg == "search":
-    if len(sys.argv[2:]) < 3:
+    if len(sys.argv[2:]) != 3:
         print("Error: the search command takes 3 arguments")
+        exit(0)
+
+    if sys.argv[2] != "i" and sys.argv[2] != "-i":
+        print(sys.argv[2])
+        print("Error: the second argument is the case sensitivity (i) or (-i)")
         exit(0)
 
     command.Search(sys.argv[2:])
