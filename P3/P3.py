@@ -25,6 +25,12 @@ if commandArg == "search":
         print(sys.argv[2])
         print("Error: the second argument is the case sensitivity (i) or (-i)")
         exit(0)
+    try:
+        file = open(sys.argv[4])
+    except FileNotFoundError:
+        print("Could not open file")
+        exit(0)
+    file.close()
 
     command.Search(sys.argv[2:])
 
@@ -37,8 +43,22 @@ if commandArg == "remove":
         print(sys.argv[2])
         print("Error: the second argument is the case sensitivity (i) or (-i)")
         exit(0)
+    try:
+        file = open(sys.argv[4])
+    except FileNotFoundError:
+        print("Could not open file")
+        exit(0)
+    file.close()
 
     command.Remove(sys.argv[2:])
+
+if commandArg == "merge":
+    try:
+        file = open(sys.argv[2])
+    except FileNotFoundError:
+        print("Could not open file")
+        exit(0)
+    file.close()
 
 
 
