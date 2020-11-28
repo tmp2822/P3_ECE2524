@@ -57,8 +57,18 @@ class Commands:
                     for line in updatedFileData:
                         file.write(line)
 
-    def Merge():
-        return 0
+    def Merge(self, args):
+        mergedFileData = []
+        outputFile = args[0]
+        files = args[1:];
+        for f in files:
+            with open(f, 'r') as file:
+                mergedFileData.append(file.read())
+
+        with open(outputFile, 'w') as file:
+            for line in mergedFileData:
+                file.write(line)
+                file.write("\n")
 
     def List():
         return 0

@@ -53,12 +53,14 @@ if commandArg == "remove":
     command.Remove(sys.argv[2:])
 
 if commandArg == "merge":
-    try:
-        file = open(sys.argv[2])
-    except FileNotFoundError:
-        print("Could not open file")
-        exit(0)
-    file.close()
+    for f in sys.argv[3:]:
+        try:
+            file = open(f)
+        except FileNotFoundError:
+            print("Could not open file, all arguments after merge command need to be valid files")
+            exit(0)
+        file.close()
+    command.Merge(sys.argv[2:])
 
 
 
