@@ -62,5 +62,30 @@ if commandArg == "merge":
         file.close()
     command.Merge(sys.argv[2:])
 
+if commandArg == "list":
+    if len(sys.argv[2:]) != 1:
+        print("Error: the list command takes 1 argument, which is the file to be listed")
+        exit(0)
 
+    try:
+        file = open(sys.argv[2])
+    except FileNotFoundError:
+        print("Could not open file")
+        exit(0)
+    file.close()
+
+    command.List(sys.argv[2])
+
+if commandArg == "copy":
+    if len(sys.argv[2:]) != 2:
+        print("Error: the copy command takes 2 arguments")
+        exit(0)
+
+    try:
+        file = open(sys.argv[2])
+    except FileNotFoundError:
+        print("Could not open file")
+        exit(0)
+
+    command.Copy(sys.argv[2:])
 

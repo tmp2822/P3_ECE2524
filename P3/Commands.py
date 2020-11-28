@@ -70,8 +70,17 @@ class Commands:
                 file.write(line)
                 file.write("\n")
 
-    def List():
-        return 0
+    def List(self, file):
+        with open(file, 'r') as f:
+            print(f.read())
 
-    def Copy():
-        return 0
+    def Copy(self, args):
+        originalFile = args[0]
+        copy = args[1]
+
+        with open(originalFile, 'r') as file:
+            copiedFileData = file.read()
+        
+        with open(copy, 'w') as file:
+               file.write(copiedFileData)
+
