@@ -1,5 +1,7 @@
 # P3_ECE2524
 
+This program takes Unix stye command line arguments and executes them on specified files. 
+
 Example of each command:
 
 search command -> python P3.py search i word file1.txt (i means case sensitive -i means case insensitive)
